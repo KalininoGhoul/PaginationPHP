@@ -11,7 +11,7 @@
 
 	if ($lastPage == 0) $lastPage = 1;
 
-    $reviews = $db->query("SELECT * FROM reviews ORDER BY `date` DESC limit {$limitOffset}, {$perPage}")->fetchAll(PDO::FETCH_ASSOC);
+        $reviews = $db->query("SELECT * FROM reviews ORDER BY `date` DESC limit {$limitOffset}, {$perPage}")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -26,25 +26,25 @@
 			<h1>Гостевая книга</h1>
 			<div>
 				<nav>
-				  <ul class="pagination">
-				  	<li <?php if($page == 1):?>class="disabled"<?php endif;?> >
-						<a href="?page=1"  aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
+                      <ul class="pagination">
+                            <li <?php if($page == 1):?>class="disabled"<?php endif;?> >
+                                <a href="?page=1"  aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
 
-					<?php for ($i = 1; $i <= $lastPage; $i++): ?>
-						<li <?php if($i == $page):?>class="active"<?php endif;?> >
-							<a href="?page=<?=$i?>"><?=$i?></a>
-						</li>
-					<?php endfor; ?>
+                            <?php for ($i = 1; $i <= $lastPage; $i++): ?>
+                                <li <?php if($i == $page):?>class="active"<?php endif;?> >
+                                    <a href="?page=<?=$i?>"><?=$i?></a>
+                                </li>
+                            <?php endfor; ?>
 
-					<li <?php if($lastPage == $page):?>class="disabled"<?php endif;?>>
-						<a href="?page=<?=$lastPage?>" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				  </ul>
+                            <li <?php if($lastPage == $page):?>class="disabled"<?php endif;?>>
+                                <a href="?page=<?=$lastPage?>" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                      </ul>
 				</nav>
 			</div>
 
