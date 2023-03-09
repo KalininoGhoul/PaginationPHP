@@ -3,9 +3,9 @@
 
 	$db = new PDO('mysql:host=localhost;dbname=reviews', 'root');
 
-    $page = $_GET['page'] ?? 1;
-    $perPage = 5;
-    $limitOffset = $perPage * ( $page - 1 );
+    	$page = $_GET['page'] ?? 1;
+    	$perPage = 5;
+    	$limitOffset = $perPage * ( $page - 1 );
 	$total = $db->query("SELECT COUNT(*) AS count FROM reviews")->fetch(PDO::FETCH_ASSOC);
 	$lastPage = ceil( $total['count'] / $perPage );
 
